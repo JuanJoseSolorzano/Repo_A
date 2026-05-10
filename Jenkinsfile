@@ -3,12 +3,17 @@ pipeline {
         label 'windows11_machine'
     }
     stages {
-        stage('Trigger Repo 1'){
+        stage('Push into master'){
             steps {
-                bat 'echo TA repo triggered successfully'
+                script {
+                    echo "Commit: ${env.GIT_COMMIT}"
+                }
+                powershell """
+                    Write-Host 'A new release has been merged' 
+                """ 
             }
         }
-        stage('Clone Repo_B'){
+        stage('Trigger Repo_B'){
             steps {
                 build job: 'Repo_B-Pipeline'
             }
