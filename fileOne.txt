@@ -1,2 +1,2 @@
 Testing the trigger
-Test number 1
+Test number 2
