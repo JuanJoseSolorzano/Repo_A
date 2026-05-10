@@ -28,18 +28,7 @@ pipeline {
                     echo "================================="
                 }
                 powershell '''
-                    Write-Host "COMMIT MESSAGE"
-                    git log -1 --pretty=%B
-
-                    Write-Host ""
-
-                    Write-Host "AUTHOR"
-                    git log -1 --pretty=%an
-
-                    Write-Host ""
-
-                    Write-Host "CHANGED FILES"
-                    git diff-tree --no-commit-id --name-only -r HEAD
+                    Write-Host 'A new release has been merged' 
                 '''
             }
         }
